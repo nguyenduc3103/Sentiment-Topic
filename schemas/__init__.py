@@ -1,0 +1,1 @@
+from .sentiment_schema import CategoryPrediction, TotalPredication

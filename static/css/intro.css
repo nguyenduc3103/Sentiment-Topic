@@ -1,0 +1,340 @@
+
+
+body{
+    background: rgb(100,223,247);
+background: linear-gradient(0deg, rgba(100,223,247,1) 0%, rgba(104,208,181,1) 32%, rgba(92,166,198,1) 61%, rgba(20,101,83,1) 100%);
+
+}
+
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    color: #f8fc50;
+
+}
+/* section:nth-child(1){
+    background-color: red;
+}
+section:nth-child(2){
+    background-color: blue;
+}
+section:nth-child(3){
+    background-color: green;
+} */
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 90vh;
+
+}
+
+.main-title{
+    font-size: 4em;
+    margin-bottom: 50px;
+
+}
+
+.content{
+    position: relative;
+    width: 1150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.content .image{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    background-size: cover ;
+    border-radius:10px;
+}
+
+.content .image img{
+    z-index: 111;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid #0179f587
+}
+
+.content .text-box{
+    z-index: 222;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transform: translate(-80px, 50px);
+
+}
+
+.content .text-box .h3{
+    font-size: 2em;
+    margin-bottom: 10px;
+
+}
+
+.section-title{
+    font-size: 3em;
+    margin-bottom: 80px;
+
+}
+
+.info-title{
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.info{
+    width: 700px;
+    margin-left: 50px;
+}
+
+.team-info{
+    width:  400px;
+    margin-left: 50px;
+}
+
+.containers{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+.section-title2{
+    font-size: 3em;
+    margin-bottom: 20px;
+
+}
+
+.card-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 30px;
+    max-width: 86vw;
+}
+
+.card-content .card{
+    opacity: 1;
+    transition: 0.4 ease;
+}
+.card-content .card.active{
+    opacity: 1;
+}
+.card{
+    text-align: center;
+    position: relative;
+    background: #fff;
+    max-width: 325px;
+    width: 325px;
+    height: 300px;
+    margin: 25px;
+    box-shadow: 17px 23px 23px -8px rgb(135 2 83 / 67%);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.sec-03 .card:hover{
+    transform: scale(1.05);
+}
+.card-image{
+    max-height: 200px;
+
+}
+.card-image img{
+    max-width: 50%;
+}
+
+.card-info{
+    position: relative;
+    color: #222;
+    padding: 10px 20px 20px;
+
+}
+
+.card-info h3{
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-bottom: 5px;
+
+}
+
+.card-info p{
+    font-size: 1em;
+    margin-bottom: 5px;
+
+}
+
+.pagination{
+    text-align: center;
+    margin: 30px 30px 60px;
+    user-select: none;
+}
+
+.pagination li{
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 5px 25px rgba(205, 74, 74, 0.1);
+}
+
+.pagination li a{
+    color: #111222;
+    text-decoration: none;
+    font-size: 1.2em;
+    line-height: 45px;
+}
+
+.previous-page, .next-page{
+    background: #f8fc50;
+    width: 80px;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.previous-page:hover{
+    transform: translateX(-5px);
+
+}
+
+.next-page:hover{
+    transform: translateX(5px);
+}
+.current-page, .dots{
+    background: #ccc;
+    width: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+ 
+.disable{
+    background: #ccc;
+}
+
+
+
+
+img{
+	width: 80%;
+	height: auto;
+    margin: auto;
+    border-radius: 50%;
+}
+
+ul{ list-style: none; }
+
+.slick-slide{
+	overflow: hidden;
+    width: 20vw;
+}
+.slick-slide div{
+    text-align: center;
+
+}
+.carousel-wrapper{
+    position: relative;
+    overflow: hidden;
+    width: 80vw;
+    height: 370px;
+    margin: 20px auto;
+
+}
+.carousel-container{
+    margin: 20px auto;
+    position: relative;
+    /* border: 5px solid black; */
+}
+
+.slick-track{
+	width: 800vw;
+	display: flex;
+	transition: 0.1s;
+	transform: translateX(0);
+}
+
+.slick-dots{
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	margin: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.slick-dots li{ margin: 0px 7px; }
+.slick-dots button{
+	border: none;
+    border-radius: 50%;
+    background: #c3a7a7;
+    color: #c3a7a7;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    outline: none;
+    font-size: 0px;
+    transition: 0.25s;
+}
+.animate-charcter{
+    font-size: 56px;
+    margin: 20px 0px;
+}
+.slick-arrow{
+	position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #ffecec;
+    top:35%;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 25px;
+    color: #211616;
+    z-index: 20;
+}
+.slick-next{
+	right: 7%;
+}
+.slick-prev{
+	left: 7%;
+}
+.slick-active button{
+	background: red;
+}
+.pagination .active {
+    background-color: yellow;
+}
+
+
+
+
+
+
+
+
