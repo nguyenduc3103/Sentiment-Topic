@@ -1,1 +1,1 @@
-from .sentiment_schema import CategoryPrediction, TotalPredication
+from .sentiment_schema import CategoryPrediction, TotalPrediction, DemoPrediction

@@ -14,7 +14,11 @@ class CategoryPrediction(BaseModel):
     date: list[int]
     
 
-class TotalPredication(BaseModel):
+class TotalPrediction(BaseModel):
     status_code: int
     predict: dict[str, CategoryPrediction]
+    
+class DemoPrediction(BaseModel):
+    probs: list
+    class_ids: list
     

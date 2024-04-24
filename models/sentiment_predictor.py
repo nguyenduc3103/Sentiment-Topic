@@ -1,3 +1,7 @@
+from utils.logger import Logger
+from config.sentiment_cfg import TextVectorConfig, SentimentDataConfig
+from models.sentiment_model import standardize, PositionalEncoding
+
 import sys
 import tensorflow as tf
 import spacy
@@ -12,10 +16,6 @@ from nltk.corpus import words
 from tensorflow.keras.layers import TextVectorization # type: ignore
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
-
-from utils.logger import Logger
-from config.sentiment_cfg import TextVectorConfig, SentimentDataConfig
-from models.sentiment_model import standardize, PositionalEncoding
 
 
 LOGGER = Logger(__file__, log_file="predictor.log")
@@ -148,32 +148,27 @@ class Predictor:
     def process_ouput(self, dates, class_ids):
         results = {
             "Fashion": {
-                "pos": [],
-                "neg": [],
-                "date": []
+                "pos": [0] * len(dates),
+                "neg": [0] * len(dates),
+                "date": dates
                 },
             "Food": {
-                "pos": [],
-                "neg": [],
-                "date": []
+                "pos": [0] * len(dates),
+                "neg": [0] * len(dates),
+                "date": dates
                 },
             "Film": {
-                "pos": [],
-                "neg": [],
-                "date": []
+                "pos": [0] * len(dates),
+                "neg": [0] * len(dates),
+                "date": dates
             }
         }
         
         topics, sentiments = class_ids
         
         for date, topic, sentiment in zip(dates, topics, sentiments):
-            if sentiment == "pos":
-                results[topic]["pos"].append(1)
-                results[topic]["neg"].append(0)
-                results[topic]["date"].append(date)
-            else:
-                results[topic]["pos"].append(0)
-                results[topic]["neg"].append(1)
-                results[topic]["date"].append(date)
+            index = dates.index(date)
+            results[topic][sentiment][index] += 1
         
         return results
+    
