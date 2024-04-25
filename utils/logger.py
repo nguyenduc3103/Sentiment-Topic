@@ -46,6 +46,6 @@ class Logger:
         self.log.info(f"Predictor name: {predictor_name}")
     
     
-    def log_response(self, pred_prob, pred_class):
-        self.log.info(f"Predicted Prob: {pred_prob} - Predicted Class: {pred_class}")
+    def log_response(self, pred_probs, pred_class_ids):
+        self.log.info(f"Predicted Prob: {pred_probs} - Predicted Class: {pred_class_ids}")
         

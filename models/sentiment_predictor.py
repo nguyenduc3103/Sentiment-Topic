@@ -24,6 +24,7 @@ LOGGER.log.info("Starting Model Serving")
 
 class Predictor:
     def __init__(self, model_weight, device="cpu") -> None:
+        self.model_name = "Topic-Sentiment"
         self.model_weight = model_weight
         self.device = device
         self.load_model()
@@ -44,8 +45,8 @@ class Predictor:
             pad_to_max_tokens=True,
             vocabulary=vocab
         )
-
-    
+        
+        
     def load_model(self):
         if self.device == "cuda":
             gpus = tf.config.list_physical_devices('GPU')
@@ -101,7 +102,7 @@ class Predictor:
         
         outputs = await self.model_inference(text_vecs)
         
-        _, class_ids = self.output2pred(outputs)
+        probs, class_ids = self.output2pred(outputs)
         
         tf.keras.backend.clear_session()
         
@@ -141,9 +142,14 @@ class Predictor:
         topic_labels = list(map(SentimentDataConfig.ID2LABEL_1.get, topic_ids))
         sentiment_labels = list(map(SentimentDataConfig.ID2LABEL_2.get, sentiment_ids))
         
-        return (topic_probs.tolist(), sentiment_probs.tolist()), \
-                (topic_labels, sentiment_labels)
-
+        probs = (topic_probs.tolist(), sentiment_probs.tolist())
+        class_ids = (topic_labels, sentiment_labels)
+        
+        LOGGER.log_model(self.model_name)
+        LOGGER.log_response(pred_probs=probs, pred_class_ids=class_ids)
+        
+        return (probs, class_ids)
+                
 
     def process_ouput(self, dates, class_ids):
         results = {
